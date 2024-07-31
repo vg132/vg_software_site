@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.vgsoftware.web.data.system">
+	<class name="NewsItem" table="system_news_item">
+		<id name="id" type="long" column="id" >
+			<generator class="native"/>
+		</id>
+		<property name="title">
+			<column name="title"/>
+		</property>
+		<property name="content">
+			<column name="content"/>
+		</property>
+		<one-to-one name="author" class="Member" foreign-key="author_id" />
+		<property name="openForComments">
+			<column name="open_for_comments"/>
+		</property>
+		<property name="nrOfComments">
+			<column name="nr_of_comments"/>
+		</property>
+		<set name="comments" order-by="post_date ASC">
+			<key column="news_id"/>
+			<one-to-many class="NewsComment"/>
+		</set>
+		<property name="newsDate">
+			<column name="news_date"/>
+		</property>
+	</class>
+</hibernate-mapping>

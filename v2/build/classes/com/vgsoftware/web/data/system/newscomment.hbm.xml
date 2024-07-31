@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.vgsoftware.web.data.system">
+	<class name="NewsComment" table="system_news_comment">
+		<id name="id" type="long" column="id" >
+			<generator class="native"/>
+		</id>
+		<one-to-one name="poster" class="Member" foreign-key="member_id" />
+		<one-to-one name="newsItem" class="NewsItem" foreign-key="news_id" />
+		<property name="comment">
+			<column name="comment"/>
+		</property>
+		<property name="postDate">
+			<column name="post_date"/>
+		</property>
+		<property name="editDate">
+			<column name="edit_date"/>
+		</property>
+	</class>
+</hibernate-mapping>

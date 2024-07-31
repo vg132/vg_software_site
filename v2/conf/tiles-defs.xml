@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.3//EN" "http://struts.apache.org/dtds/tiles-config_1_3.dtd">
+<tiles-definitions>
+	<definition name="MainLayout" path="/Templates/Frameworks/DefaultFramework.jsp">
+		<put name="pageTitle" value="VG Software" />
+	</definition>
+	<!--
+    <definition name="aPage" extends="mainLayout">
+        <put name="pageTitle"  value="Another Title" />
+        <put name="body" value="Kalle Anka Body aPage!"/>
+    </definition>
+
+    <definition name="bPage" extends="mainLayout">
+        <put name="body" value="Kalle Anka Body bPage"/>
+    </definition>
+    -->
+    <definition name="vgsoftware.NewsItemList" extends="MainLayout">
+		<put name="pageHeadline" value="VG Software News"/>
+    	<put name="mainContent" value="/Templates/ContentBlocks/News/NewsItemList.jsp" type="template"/>
+    </definition>
+</tiles-definitions>

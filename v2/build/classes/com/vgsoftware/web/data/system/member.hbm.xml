@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.vgsoftware.web.data.system">
+	<class name="Member" table="system_member">
+		<id name="id" type="long" column="id" >
+			<generator class="native"/>
+		</id>
+		<property name="name">
+			<column name="name"/>
+		</property>
+		<property name="password">
+			<column name="password"/>
+		</property>
+		<property name="email">
+			<column name="email"/>
+		</property>
+		<property name="joinDate">
+			<column name="join_date"/>
+		</property>
+		<set name="roles" table="system_member_roles">
+			<key column="role_id"/>
+			<many-to-many column="member_id" class="Role" />
+		</set>
+	</class>
+</hibernate-mapping>
